@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="digizilla_pos_order_tags.OrderTagPopup">
+        <Dialog title="props.title" size="'md'">
+            <t t-set-slot="default">
+                <div class="order-tag-popup">
+                <p class="popup-subtitle">Select at least one tag before validating the order.</p>
+                <div class="tag-list">
+                    <t t-foreach="availableTags" t-as="tag" t-key="tag.id">
+                        <div
+                            class="tag-item"
+                            t-att-class="isSelected(tag.id) ? 'selected' : ''"
+                            t-on-click="() => this.toggleTag(tag.id)"
+                        >
+                            <span
+                                class="tag-color-dot"
+                                t-attf-style="background-color: {{ getColor(tag.color) }};"
+                            />
+                            <span class="tag-name" t-esc="tag.name"/>
+                            <span t-if="isSelected(tag.id)" class="tag-check">
+                                <i class="fa fa-check"/>
+                            </span>
+                        </div>
+                    </t>
+                    <div t-if="availableTags.length === 0" class="no-tags-msg">
+                        No tags configured. Please add tags in
+                        Point of Sale → Configuration → Order Tags.
+                    </div>
+                </div>
+                </div>
+            </t>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary" t-on-click="close">Cancel</button>
+                <button
+                    class="btn btn-primary"
+                    t-att-disabled="state.selectedTagIds.length === 0"
+                    t-on-click="confirm"
+                >
+                    Confirm
+                    <t t-if="state.selectedTagIds.length > 0">
+                        (<t t-esc="state.selectedTagIds.length"/>)
+                    </t>
+                </button>
+            </t>
+        </Dialog>
+    </t>
+
+</templates>

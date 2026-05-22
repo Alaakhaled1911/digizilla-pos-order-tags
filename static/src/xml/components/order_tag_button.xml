@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="point_of_sale.ControlButtons" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-buttons-modal')]" position="inside">
+            <button class="btn btn-secondary btn-lg py-5" t-on-click="() => this.clickOrderTags()">
+                <i class="fa fa-tags me-1"/>
+                Order Tags
+                <t t-if="currentOrder?.uiState?.digizilla_tag_ids?.length">
+                    <span class="badge ms-1" t-esc="currentOrder.uiState.digizilla_tag_ids.length"/>
+                </t>
+            </button>
+        </xpath>
+    </t>
+
+</templates>

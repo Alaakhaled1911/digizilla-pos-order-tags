@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="digizilla_pos_order_tags.OrderTagDisplay">
+        <div t-if="selectedTags.length > 0" class="order-tag-display">
+            <span class="order-tag-display-label">Tags:</span>
+            <t t-foreach="selectedTags" t-as="tag" t-key="tag.id">
+                <span
+                    class="order-tag-chip"
+                    t-attf-style="background-color: {{ getColor(tag.color) }}; color: {{ getTextColor(tag.color) }};"
+                    t-esc="tag.name"
+                />
+            </t>
+        </div>
+    </t>
+
+</templates>

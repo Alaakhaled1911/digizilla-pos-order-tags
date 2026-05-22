@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!--
+        Patch the standard OrderWidget template to inject the OrderTagDisplay
+        component below the order summary section.
+        The XPath targets the .order-summary element that wraps the lines list.
+    -->
+    <t t-name="point_of_sale.OrderWidget" t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
+        <!-- top of cart when order has lines -->
+        <xpath expr="//div[hasclass('order-summary')]" position="after">
+            <OrderTagDisplay/>
+        </xpath>
+        <!-- top of cart when order is empty -->
+        <xpath expr="//CenteredIcon" position="before">
+            <OrderTagDisplay/>
+        </xpath>
+    </t>
+
+</templates>

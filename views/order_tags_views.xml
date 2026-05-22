@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_digizilla_order_tags_list" model="ir.ui.view">
+        <field name="name">digizilla.order.tags.list</field>
+        <field name="model">digizilla.order.tags</field>
+        <field name="arch" type="xml">
+            <list string="Order Tags" js_class="order_tags_list">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_digizilla_order_tags_form" model="ir.ui.view">
+        <field name="name">digizilla.order.tags.form</field>
+        <field name="model">digizilla.order.tags</field>
+        <field name="arch" type="xml">
+            <form string="Order Tag">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+<record id="action_digizilla_order_tags" model="ir.actions.act_window">
+    <field name="name">Order Tags</field>
+    <field name="res_model">digizilla.order.tags</field>
+    <field name="view_mode">list,form</field>
+
+</record>
+
+
+</odoo>

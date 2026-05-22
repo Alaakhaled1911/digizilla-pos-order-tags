@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_digizilla_pos_order_tags"
+        name="Order Tags"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_digizilla_order_tags"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>
+
+
