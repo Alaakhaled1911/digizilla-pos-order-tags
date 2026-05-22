@@ -1,1 +1,12 @@
+# PyCharm
 .idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Odoo
+*.log
+*.pot
+*.mo
